@@ -9,7 +9,6 @@ const fetch = require('node-fetch');
 const urlencode = require("urlencode");
 const axios = require("axios");
 const menu = require("./lib/menu.js");
-const donate = require("./lib/donate.js");
 const info = require("./lib/info.js");
 
 
