@@ -14,10 +14,10 @@ const info = require("./lib/info.js");
 
 
 //
-const BotName = 'NIKE O SUPREMO'; // Nome do Whatsapp Bot
-const instagramlu = 'https://www.instagram.com/em3rzoum/'; // Nome do Instagram
-const whatsapplu = '+55 42 99276766'; // Número do Whatsapp
-const kapanbotaktif = '24 Hora'; // Quando seu bot estava ativo
+const BotName = 'SEMNOME'; // Nome do Whatsapp Bot
+const instagramlu = 'semINSTA'; // Nome do Instagram
+const whatsapplu = 'semZAP'; // Número do Whatsapp
+const kapanbotaktif = '24 Horas'; // Quando seu bot estava ativo
 const grupch1 = 'OFF'; // GRUP RESMI LU 1
 const grupch2 = 'OFF'; // OFFICIAL GRUP LU 2
 //
@@ -84,13 +84,13 @@ conn.on('message-new', async(m) =>
 
 
 // Groups
-if(text.includes('#add')){
+if(text.includes('!add')){
     const response = await conn.groupAdd ("abc-xyz@g.us", ["abcd@s.whatsapp.net", "efgh@s.whatsapp.net"]) 
 };
 
-if (text.includes("#grupo"))
+if (text.includes("!grupo"))
    {
-var nama = text.split("#grupo")[1].split("-nomor")[0];
+var nama = text.split("!grupo")[1].split("-nomor")[0];
 var nom = text.split("-nomor")[1];
 var numArray = nom.split(",");
 for ( var i = 0; i < numArray.length; i++ ) {
@@ -105,8 +105,8 @@ conn.sendMessage(group.gid, "hello everyone", MessageType.extendedText) // say h
 }
 
 // FF
-if(text.includes("#verifica")){
-var num = text.replace(/#verifica/ , "")
+if(text.includes("!verificar")){
+var num = text.replace(/!verificar/ , "")
 var br = num.replace("0","+55");
 
 console.log(id);
@@ -117,15 +117,15 @@ console.log(exists);
 conn.sendMessage(id ,`${gg} ${exists ? " Confirmado existe " : " Não existe "} on WhatsApp`, MessageType.text)
 }
 
-if (text.includes("#dizer")){
-  const teks = text.replace(/#dizer /, "")
+if (text.includes("!dizer")){
+  const teks = text.replace(/!dizer /, "")
 conn.sendMessage(id, teks, MessageType.text)
 }
 
 
 
-if (text.includes("$wiki")){
-const teks = text.replace(/$wiki /, "")
+if (text.includes("!wiki")){
+const teks = text.replace(/!wiki /, "")
 axios.get(`https://st4rz.herokuapp.com/api/wiki?q=${teks}`).then((res) => {
 	conn.sendMessage(id, '[ WAIT ] Sedang di prosesâ³ silahkan tunggu sebentar', MessageType.text)
     let hasil = `ðŸ“Menurut Wikipedia:\n\n${res.data.result}`;
@@ -133,24 +133,24 @@ axios.get(`https://st4rz.herokuapp.com/api/wiki?q=${teks}`).then((res) => {
 })
 }
 
-if (text.includes("#fb")){
-const teks = text.replace(/#fb /, "")
+if (text.includes("!fb")){
+const teks = text.replace(/!fb /, "")
 axios.get(`https://mhankbarbar.herokuapp.com/api/epbe?url=${teks}&apiKey=zFuV88pxcIiCWuYlwg57`).then((res) => {
     let hasil = `Download sendiri melalui link dibawah ya, takut servernya down xixi..\n\nJudul: ${res.data.title}\n\nSize: ${res.data.filesize}\n\nLink: ${res.data.result}`;
     conn.sendMessage(id, hasil ,MessageType.text);
 })
 }
 
-if (text.includes("#ig")){
-const teks = text.replace(/#ig /, "")
+if (text.includes("!ig")){
+const teks = text.replace(/!ig /, "")
 axios.get(`https://mhankbarbar.herokuapp.com/api/ig?url=${teks}&apiKey=zFuV88pxcIiCWuYlwg57`).then((res) => {
     let hasil = `Download sendiri melalui link dibawah ya, takut servernya down xixi..\n\nLink: ${res.data.result}`;
     conn.sendMessage(id, hasil ,MessageType.text);
 })
 }
 
-if (text.includes("#twt")){
-const teks = text.replace(/#twt /, "")
+if (text.includes("!twt")){
+const teks = text.replace(/!twt /, "")
 axios.get(`https://mhankbarbar.herokuapp.com/api/twit?url=${teks}&apiKey=zFuV88pxcIiCWuYlwg57`).then((res) => {
     let hasil = `Download sendiri melalui link dibawah ya, takut servernya down xixi..\n\nJudul: ${res.data.title}\n\nSize: ${res.data.filesize}\n\nLink: ${res.data.result}`;
     conn.sendMessage(id, hasil ,MessageType.text);
@@ -160,7 +160,7 @@ axios.get(`https://mhankbarbar.herokuapp.com/api/twit?url=${teks}&apiKey=zFuV88p
 
 
 
-if (text == '#help'){
+if (text == '!help'){
 const corohelp = await get.get('https://covid19.mathdro.id/api/countries/br').json()
 var date = new Date();
 var tahun = date.getFullYear();
@@ -197,37 +197,37 @@ var tampilTanggal = "DATA: " + hari + ", " + tanggal + " " + bulan + " " + tahun
 var tampilWaktu = "HORA: " + jam + ":" + menit + ":" + detik;
 conn.sendMessage(id, menu.menu(id, BotName, corohelp, tampilTanggal, tampilWaktu, instagramlu, whatsapplu, kapanbotaktif, grupch1, grupch2) ,MessageType.text);
 }
-else if (text == 'nike voce gosta de min?'){
-conn.sendMessage(id, 'Claro que sim eu pagaria facil kkk' ,MessageType.text);
+else if (text == 'bot voce gosta de min?'){
+conn.sendMessage(id, 'Claro que sim' ,MessageType.text);
 }
-else if (text == 'Te amo nike'){
+else if (text == 'Te amo bot'){
 conn.sendMessage(id, 'Eu eo resto do grupo né?' ,MessageType.text);
 }
-else if (text == 'Assalamualaikum'){
-conn.sendMessage(id, 'Waalaikumsalam, ada yang bisa saya bantu? kalo bingung ketik #help ya say..' ,MessageType.text);
+else if (text == 'oiii'){
+conn.sendMessage(id, 'Olá, como posso ajudá-lo? se estiver confuso, digite !help' ,MessageType.text);
 }
-else if (text == 'p'){
-conn.sendMessage(id, 'Ya?, ada yang bisa saya bantu? kalo bingung ketik #help ya say..' ,MessageType.text);
+else if (text == 'oi'){
+conn.sendMessage(id, 'Olá, como posso ajudá-lo? se estiver confuso, digite !help' ,MessageType.text);
 }
-else if (text == 'P'){
-conn.sendMessage(id, 'Ya?, ada yang bisa saya bantu? kalo bingung ketik #help ya say..' ,MessageType.text);
+else if (text == 'Oi'){
+conn.sendMessage(id, 'Olá, como posso ajudá-lo? se estiver confuso, digite !help' ,MessageType.text);
 }
-else if (text == 'halo'){
-conn.sendMessage(id, 'Ya?, ada yang bisa saya bantu? kalo bingung ketik #help ya say..' ,MessageType.text);
+else if (text == 'oii'){
+conn.sendMessage(id, 'Olá, como posso ajudá-lo? se estiver confuso, digite !help.' ,MessageType.text);
 }
-else if (text == 'hai'){
-conn.sendMessage(id, 'Ya?, ada yang bisa saya bantu? kalo bingung ketik #help ya say..' ,MessageType.text);
+else if (text == 'ola'){
+conn.sendMessage(id, 'Olá, como posso ajudá-lo? se estiver confuso, digite !help' ,MessageType.text);
 }
-else if (text == 'woi'){
-conn.sendMessage(id, 'Ya?, ada yang bisa saya bantu? kalo bingung ketik #help ya say..' ,MessageType.text);
+else if (text == 'bom dia'){
+conn.sendMessage(id, 'Olá, como posso ajudá-lo? se estiver confuso, digite !help' ,MessageType.text);
 }
-else if (text == 'woy'){
-conn.sendMessage(id, 'Ya?, ada yang bisa saya bantu? kalo bingung ketik #help ya say..' ,MessageType.text);
+else if (text == 'boa noite'){
+conn.sendMessage(id, 'Olá, como posso ajudá-lo? se estiver confuso, digite !help' ,MessageType.text);
 }
-else if (text == 'hi'){
-conn.sendMessage(id, 'Ya?, ada yang bisa saya bantu? kalo bingung ketik #help ya say..' ,MessageType.text);
+else if (text == 'Olá'){
+conn.sendMessage(id, 'Olá, como posso ajudá-lo? se estiver confuso, digite !help' ,MessageType.text);
 }
-else if (text == 'gan'){
+else if (text == 'aaa'){
 conn.sendMessage(id, 'Ya?, ada yang bisa saya bantu? kalo bingung ketik #help ya say..' ,MessageType.text);
 }
 else if (text == 'sis'){
@@ -281,13 +281,13 @@ conn.sendMessage(id, 'VAI LER O SALMO 91 VAGABUNDO(A)🤨...' ,MessageType.text)
 else if (text == '#kiss'){
 conn.sendMessage(id, 'Nike deu um beijo em você🥰' ,MessageType.text);
 }
-else if (text == '#sticker'){
+else if (text == '!sticker'){
 conn.sendMessage(id, 'COLOQUE O COMANDO NA LEGENDA DA FOTO...' ,MessageType.text);
 }
 else if (text == '#roleta'){
 conn.sendMessage(id, '🔫Bang, ela disparou e você morreu, é game over otario(a)...' ,MessageType.text);
 }
-else if (text == '#doar'){
+else if (text == '!!doar'){
 const corohelp = await get.get('https://covid19.mathdro.id/api/countries/br').json()
 var date = new Date();
 var tahun = date.getFullYear();
@@ -324,7 +324,7 @@ var tampilTanggal = "TANGGAL: " + hari + ", " + tanggal + " " + bulan + " " + ta
 var tampilWaktu = "JAM: " + jam + ":" + menit + ":" + detik;
 conn.sendMessage(id, donate.donate(id, BotName, corohelp, tampilTanggal, tampilWaktu, instagramlu, whatsapplu, kapanbotaktif, grupch1, grupch2) ,MessageType.text);
 }
-else if (text == '#donasi'){
+else if (text == '#donasiss'){
 const corohelp = await get.get('https://covid19.mathdro.id/api/countries/br').json()
 var date = new Date();
 var tahun = date.getFullYear();
@@ -361,7 +361,7 @@ var tampilTanggal = "TANGGAL: " + hari + ", " + tanggal + " " + bulan + " " + ta
 var tampilWaktu = "JAM: " + jam + ":" + menit + ":" + detik;
 conn.sendMessage(id, donate.donate(id, BotName, corohelp, tampilTanggal, tampilWaktu, instagramlu, whatsapplu, kapanbotaktif, grupch1, grupch2) ,MessageType.text);
 }
-else if (text == '#doar'){
+else if (text == '#doaar'){
 const corohelp = await get.get('https://covid19.mathdro.id/api/countries/br').json()
 var date = new Date();
 var tahun = date.getFullYear();
@@ -398,7 +398,7 @@ var tampilTanggal = "TANGGAL: " + hari + ", " + tanggal + " " + bulan + " " + ta
 var tampilWaktu = "JAM: " + jam + ":" + menit + ":" + detik;
 conn.sendMessage(id, donate.donate(id, BotName, corohelp, tampilTanggal, tampilWaktu, instagramlu, whatsapplu, kapanbotaktif, grupch1, grupch2) ,MessageType.text);
 }
-else if (text == '#doar'){
+else if (text == '#doarr'){
   const corohelp = await get.get('https://covid19.mathdro.id/api/countries/br').json()
 var date = new Date();
 var tahun = date.getFullYear();
@@ -435,7 +435,7 @@ var tampilTanggal = "TANGGAL: " + hari + ", " + tanggal + " " + bulan + " " + ta
 var tampilWaktu = "JAM: " + jam + ":" + menit + ":" + detik;
 conn.sendMessage(id, donate.donate(id, BotName, corohelp, tampilTanggal, tampilWaktu, instagramlu, whatsapplu, kapanbotaktif, grupch1, grupch2) ,MessageType.text);
 }
-else if (text == '#info'){
+else if (text == '!info'){
   const corohelp = await get.get('https://covid19.mathdro.id/api/countries/br').json()
 var date = new Date();
 var tahun = date.getFullYear();
@@ -472,14 +472,14 @@ var tampilTanggal = "TANGGAL: " + hari + ", " + tanggal + " " + bulan + " " + ta
 var tampilWaktu = "JAM: " + jam + ":" + menit + ":" + detik;
 conn.sendMessage(id, info.info(id, BotName, corohelp, tampilTanggal, tampilWaktu, instagramlu, whatsapplu, kapanbotaktif, grupch1, grupch2) ,MessageType.text);
 }
-else if (text == '#gacha'){
+else if (text == '!gacha'){
 conn.sendMessage(id, 'kirim #gacha cewek/cowok\n\nContoh: #gacha cewek' ,MessageType.text);
 }
    if (messageType == 'imageMessage')
    {
       let caption = imageMessage.caption.toLocaleLowerCase()
       const buffer = await conn.downloadMediaMessage(m) // to decrypt & use as a buffer
-      if (caption == '#sticker')
+      if (caption == '!sticker')
       {
          const stiker = await conn.downloadAndSaveMediaMessage(m) // to decrypt & save to file
 
@@ -514,7 +514,7 @@ conn.sendMessage(id, 'kirim #gacha cewek/cowok\n\nContoh: #gacha cewek' ,Message
       }
 
    }
-   if (text.includes("#letra")){
+   if (text.includes("!letra")){
 	const teks = text.split("#letra")[1]
 	axios.get(`http://scrap.terhambar.com/lirik?word=${teks}`).then ((res) => {
 	 	let hasil = `Letra: ${teks}\n\n\n ${res.data.result.lirik}`
@@ -525,7 +525,7 @@ conn.sendMessage(id, 'kirim #gacha cewek/cowok\n\nContoh: #gacha cewek' ,Message
 
 
    
-   if (text.includes("#yt")) 
+   if (text.includes("!yt")) 
    {
       const url = text.replace(/#yt/, "");
       const exec = require('child_process').exec;
@@ -588,8 +588,8 @@ conn.sendMessage(id, 'kirim #gacha cewek/cowok\n\nContoh: #gacha cewek' ,Message
 
    
    //ytmp3 
-   if (text.includes("#ytmp3")){
-const teks = text.replace(/#ytmp3 /, "")
+   if (text.includes("!ytmp3")){
+const teks = text.replace(/!ytmp3 /, "")
 axios.get(`https://alfians-api.herokuapp.com/api/yta?url=${teks}`).then((res) => {
 	conn.sendMessage(id, '[ESPERE] Em andamento⏳ por favor, aguarde um momento', MessageType.text)
     let hasil = `âœ…Lagu Berhasil Di Download, silahkan klik link dan download hasilnya\nKlik link dibawahðŸ—¡ï¸\n\nJudul: ${res.data.title}\n\nUkuran audio: ${res.data.filesize}\n\nLink: ${res.data.result}`;
@@ -598,7 +598,7 @@ axios.get(`https://alfians-api.herokuapp.com/api/yta?url=${teks}`).then((res) =>
 } 
 
 
-   if (text.includes('#escrever')){
+   if (text.includes('!escrever')){
   var teks = text.replace(/#escrever /, ' ')
     axios.get('https://bangandre.herokuapp.com/nulis?teks='+teks)
     .then((res) => {
@@ -614,7 +614,7 @@ axios.get(`https://alfians-api.herokuapp.com/api/yta?url=${teks}`).then((res) =>
 
 
 
-   if (text.includes("#quotes"))
+   if (text.includes("!quotes"))
    {
       var url = 'https://jagokata.com/kata-bijak/acak.html'
       axios.get(url)
@@ -638,7 +638,7 @@ axios.get(`https://alfians-api.herokuapp.com/api/yta?url=${teks}`).then((res) =>
    }
 
 
-   if (text.includes("#gacha cewek"))
+   if (text.includes("!gacha cewe"))
    {
     var items = ["ullzang girl", "cewe cantik", "hijab cantik", "korean girl"];
     var cewe = items[Math.floor(Math.random() * items.length)];
@@ -667,7 +667,7 @@ axios.get(`https://alfians-api.herokuapp.com/api/yta?url=${teks}`).then((res) =>
     });
     }
 
-   if (text.includes("#gacha cowok"))
+   if (text.includes("!gacha cowok"))
    {
     var items = ["cowo ganteng", "cogan", "korean boy", "chinese boy", "japan boy"];
     var cewe = items[Math.floor(Math.random() * items.length)];
@@ -696,7 +696,7 @@ axios.get(`https://alfians-api.herokuapp.com/api/yta?url=${teks}`).then((res) =>
     });
     }
 
-if (text.includes("#randomanime"))
+if (text.includes("!randomanime"))
    {
     var items = ["anime girl", "anime cantik", "anime", "anime aesthetic"];
     var cewe = items[Math.floor(Math.random() * items.length)];
@@ -726,7 +726,7 @@ if (text.includes("#randomanime"))
     }
     
        
-if (text.includes("#scdl")){
+if (text.includes("!scdl")){
 const fs = require("fs");
 const scdl = require("./lib/scdl");
 
@@ -737,7 +737,7 @@ scdl("https://m.soundcloud.com/abdul-muttaqin-701361735/lucid-dreams-gustixa-ft-
 }
 
 
-else if (text.includes("#tts")) {
+else if (text.includes("!tts")) {
   var teks = text.split("#ttsid ")[1];
   var path = require('path');
   var text1 = teks.slice(6);
@@ -756,7 +756,7 @@ gtts.save(filepath, suara, function() {
 await new Promise(resolve => setTimeout(resolve, 500));
 
 	if(suara.length > 200){ // check longness of text, because otherways google translate will give me a empty file
-  msg.reply("VOCÊATINGIU O LIMETE DE PALAVRAS" )
+  msg.reply("VOCÊ ATINGIU O LIMITE DE PALAVRAS" )
 }else{
 
 const buffer = fs.readFileSync(filepath)
